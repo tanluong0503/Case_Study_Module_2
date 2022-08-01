@@ -5,7 +5,7 @@ import utils.AppUtils;
 import java.util.Scanner;
 
 public class UserSubMenu {
-    public void userSubMenu(){
+    public void userSubMenu() {
         Scanner sc = new Scanner(System.in);
         OrderView orderView = new OrderView();
         System.out.println("\t----------------------------------------------------------");

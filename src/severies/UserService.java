@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements IUserService{
+public class UserService implements IUserService {
     final String PATH = "data/users.csv";
 
     private static UserService instance;

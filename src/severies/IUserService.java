@@ -8,6 +8,7 @@ public interface IUserService {
     List<User> findAll();
 
     User adminLogin(String username, String password);
+
     User userLogin(String username, String password);
 
     void add(User newUser);

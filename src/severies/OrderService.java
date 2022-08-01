@@ -11,8 +11,10 @@ public class OrderService implements IOrderService {
 
     //Singleton Design Pattern
     private static OrderService instance;
+
     private OrderService() {
     }
+
     public static OrderService getInstance() {
         if (instance == null)
             instance = new OrderService();

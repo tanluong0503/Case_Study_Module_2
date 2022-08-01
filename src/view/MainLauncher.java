@@ -13,7 +13,7 @@ public class MainLauncher {
     static MainLauncher mainLauncher = new MainLauncher();
     static OrderView orderView = new OrderView();
 
-    public void setMainLauncher(){
+    public void setMainLauncher() {
         adminView.menuLogin();
         mainLauncher.mainMenu();
     }

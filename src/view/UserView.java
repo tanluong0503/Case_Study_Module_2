@@ -154,23 +154,23 @@ public class UserView {
                 System.out.print("NHẬP ĐỊA CHỈ : ");
                 address = sc.nextLine();
                 do {
-                    if (address.trim().isEmpty()){
+                    if (address.trim().isEmpty()) {
                         System.out.println("ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG, XIN NHẬP NGHIÊM TÚC");
                         System.out.print("NHẬP ĐỊA CHỈ : ");
                         address = sc.nextLine();
                     }
-                }while(address.trim().isEmpty());
+                } while (address.trim().isEmpty());
                 return address;
             case UPDATE:
                 System.out.print("NHẬP ĐỊA CHỈ : ");
                 address = sc.nextLine();
                 do {
-                    if (address.trim().isEmpty()){
+                    if (address.trim().isEmpty()) {
                         System.out.println("ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG, XIN NHẬP NGHIÊM TÚC");
                         System.out.print("NHẬP ĐỊA CHỈ : ");
                         address = sc.nextLine();
                     }
-                }while(address.trim().isEmpty());
+                } while (address.trim().isEmpty());
                 return address;
         }
         return null;

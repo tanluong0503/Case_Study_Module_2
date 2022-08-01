@@ -12,7 +12,7 @@ public class Product {
 
     private Instant timeUpdate;
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -31,6 +31,7 @@ public class Product {
         this.timeNow = timeNow;
         this.timeUpdate = timeUpdate;
     }
+
     public static Product parse(String record) {
         String[] fields = record.split(",");
         long id = Long.parseLong(fields[0]);
@@ -41,7 +42,7 @@ public class Product {
         String temp = fields[5];
         Instant timeUpdate = null;
         if (temp != null && !temp.equals("null")) timeUpdate = Instant.parse(temp);
-        return new Product(id, title,quantity, price, timeNow, timeUpdate);
+        return new Product(id, title, quantity, price, timeNow, timeUpdate);
     }
 
     public long getId() {
@@ -91,6 +92,7 @@ public class Product {
     public void setTimeUpdate(Instant timeUpdate) {
         this.timeUpdate = timeUpdate;
     }
+
     @Override
     public String toString() {
         return id + "," + title + "," + quantity + "," + price + "," + timeNow + "," + timeUpdate;

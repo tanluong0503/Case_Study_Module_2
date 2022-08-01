@@ -49,12 +49,12 @@ public class OrderView {
         System.out.print("NHẬP SỐ LƯỢNG : ");
         int quantity = Integer.parseInt(sc.nextLine());
         do {
-            if (quantity <= 0){
+            if (quantity <= 0) {
                 System.out.println("SỐ LƯỢNG PHẢI LỚN HƠN 0");
                 System.out.print("NHẬP SỐ LƯỢNG : ");
                 quantity = Integer.parseInt(sc.nextLine());
             }
-        }while (quantity <= 0);
+        } while (quantity <= 0);
 
         while (!checkQualityBakery(product, quantity)) {
             System.out.println("SỐ LƯỢNG KHÔNG ĐỦ, XIN NHẬP LẠI");
@@ -65,7 +65,7 @@ public class OrderView {
         double total = quantity * price;
         product.setQuantity(product.getQuantity() - quantity);
         productService.update(product);
-        OrderItem orderItem = new OrderItem(id, price, quantity, orderId, bakeryId, bakeryName,total);
+        OrderItem orderItem = new OrderItem(id, price, quantity, orderId, bakeryId, bakeryName, total);
         return orderItem;
     }
 
@@ -93,12 +93,12 @@ public class OrderView {
             System.out.print("NHẬP ĐỊA CHỈ : ");
             address = sc.nextLine();
             do {
-                if (address.trim().isEmpty()){
+                if (address.trim().isEmpty()) {
                     System.out.println("ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG, XIN NHẬP NGHIÊM TÚC");
                     System.out.print("NHẬP ĐỊA CHỈ : ");
                     address = sc.nextLine();
                 }
-            }while(address.trim().isEmpty());
+            } while (address.trim().isEmpty());
             OrderItem orderItem = addOrderItems(orderId);
             Order order = new Order(orderId, name, phone, address);
             oderItemService.add(orderItem);
@@ -139,6 +139,7 @@ public class OrderView {
             System.out.println("NHẬP SAI, XIN NHẬP LẠI");
         }
     }
+
     public void orderMenu() {
         System.out.println("\t----------------------------------------------------------");
         System.out.println("\t--░░░░░░░░░░░░░░░░░░░░[QUẢN LÍ HÓA ĐƠN]░░░░░░░░░░░░░░░░░--");

@@ -6,7 +6,7 @@ import utils.CSVUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderItemService implements IOderItemService{
+public class OrderItemService implements IOderItemService {
     private final static String PATH = "data/order-items.csv";
     private static OrderItemService instance;
 

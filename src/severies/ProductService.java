@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     public String PATH = "data/products.csv";
     private static ProductService instance;
 
@@ -92,6 +92,7 @@ public class ProductService implements IProductService{
         }
         return false;
     }
+
     @Override
     public void deleteById(long id) {
         List<Product> products = findAll();

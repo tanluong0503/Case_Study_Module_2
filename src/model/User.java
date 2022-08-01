@@ -47,6 +47,7 @@ public class User {
         String temp = fields[9];
         if (temp != null && !temp.equals("null"))
             user.updatedAt = Instant.parse(temp);
+        System.out.println(user);
         return user;
     }
 

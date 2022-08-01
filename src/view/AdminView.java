@@ -22,6 +22,8 @@ public class AdminView {
             String userName = AppUtils.retryString("TÊN ĐĂNG NHẬP");
             System.out.print("NHẬP MẬT KHẨU : ");
             String password = AppUtils.retryString("MẬT KHẨU");
+
+
             if (userService.adminLogin(userName, password) == null) {
                 System.out.println("TÀI KHOẢN KHÔNG HỢP LỆ");
                 isRetry = isRetry();
@@ -31,6 +33,7 @@ public class AdminView {
             }
         } while (isRetry);
     }
+
     public void userLogin() {
         boolean isRetry;
         System.out.println("------------------------ [ĐĂNG NHẬP USER] ------------------------");
@@ -39,6 +42,8 @@ public class AdminView {
             String userName = AppUtils.retryString("TÊN ĐĂNG NHẬP");
             System.out.print("NHẬP MẬT KHẨU : ");
             String password = AppUtils.retryString("MẬT KHẨU");
+
+
             if (userService.userLogin(userName, password) == null) {
                 System.out.println("TÀI KHOẢN KHÔNG HỢP LỆ");
                 isRetry = isRetry();
@@ -74,13 +79,13 @@ public class AdminView {
                     default:
                         System.out.println("CHỌN SAI SỐ, MỜI CHỌN LẠI : ");
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("NHẬP SAI, XIN NHẬP LẠI");
             }
         } while (true);
     }
 
-    public void menuLogin(){
+    public void menuLogin() {
         MainLauncher mainLauncher = new MainLauncher();
         do {
             try {
@@ -93,7 +98,7 @@ public class AdminView {
                 System.out.println("\t----------------------------------------------------------");
                 System.out.print("░░░ CHỌN SỐ : ");
                 int choice = Integer.parseInt(sc.nextLine());
-                switch (choice){
+                switch (choice) {
                     case 1:
                         adminLogin();
                         mainLauncher.mainMenu();
@@ -108,9 +113,9 @@ public class AdminView {
                     default:
                         System.out.println("CHỌN SAI SỐ, MỜI CHỌN LẠI : ");
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("NHẬP SAI, XIN NHẬP LẠI");
             }
-        }while(true);
+        } while (true);
     }
 }

@@ -310,13 +310,14 @@ public class ProductView {
                     product.getQuantity(),
                     AppUtils.doubleToVND(product.getPrice()),
                     InstantUtils.instantToString(product.getTimeNow()),
-                    product.getTimeUpdate() == null ?"": InstantUtils.instantToString(product.getTimeUpdate()));
+                    product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
         }
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         if (option == InputOption.SHOW) {
             AppUtils.isRetry(InputOption.SHOW);
         }
     }
+
     public void showProductsSub() {
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s ", "--          『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
@@ -328,7 +329,7 @@ public class ProductView {
                     product.getQuantity(),
                     product.getPrice(),
                     product.getTimeNow(),
-                    product.getTimeUpdate() == null ?"": InstantUtils.instantToString(product.getTimeUpdate()));
+                    product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
         }
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
