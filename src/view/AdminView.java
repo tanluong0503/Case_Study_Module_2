@@ -22,8 +22,6 @@ public class AdminView {
             String userName = AppUtils.retryString("TÊN ĐĂNG NHẬP");
             System.out.print("NHẬP MẬT KHẨU : ");
             String password = AppUtils.retryString("MẬT KHẨU");
-
-
             if (userService.adminLogin(userName, password) == null) {
                 System.out.println("TÀI KHOẢN KHÔNG HỢP LỆ");
                 isRetry = isRetry();
