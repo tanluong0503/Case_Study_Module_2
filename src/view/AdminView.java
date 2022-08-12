@@ -40,8 +40,6 @@ public class AdminView {
             String userName = AppUtils.retryString("TÊN ĐĂNG NHẬP");
             System.out.print("NHẬP MẬT KHẨU : ");
             String password = AppUtils.retryString("MẬT KHẨU");
-
-
             if (userService.userLogin(userName, password) == null) {
                 System.out.println("TÀI KHOẢN KHÔNG HỢP LỆ");
                 isRetry = isRetry();
@@ -112,6 +110,7 @@ public class AdminView {
                         System.out.println("CHỌN SAI SỐ, MỜI CHỌN LẠI : ");
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("NHẬP SAI, XIN NHẬP LẠI");
             }
         } while (true);

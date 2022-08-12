@@ -16,7 +16,7 @@ public class User {
     private Instant createdAt;
     private Instant updatedAt;
 
-    List<Order> orders = new ArrayList<>();
+//    List<Order> orders = new ArrayList<>();
 
     public User() {
     }
