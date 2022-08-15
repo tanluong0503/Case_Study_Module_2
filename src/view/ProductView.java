@@ -350,52 +350,52 @@ public class ProductView {
         System.out.println("\t--                             【0】. THOÁT CHƯƠNG TRÌNH                             --");
         System.out.println("\t--                                                                                  --");
         System.out.println("\t--------------------------------------------------------------------------------------");
+        String choice;
         do {
             System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
-            number = Integer.parseInt(sc.nextLine());
-            switch (number) {
-                case 1:
+            choice = sc.nextLine();
+            switch (choice) {
+                case "1":
                     showProducts(InputOption.SHOW);
                     menuProduct();
                     break;
-                case 2:
+                case "2":
                     add();
                     menuProduct();
                     break;
-                case 3:
+                case "3":
                     update();
                     menuProduct();
                     break;
-                case 4:
+                case "4":
                     remove();
                     menuProduct();
                     break;
-                case 5:
+                case "5":
                     sortPriceASC();
                     menuProduct();
                     break;
-                case 6:
+                case "6":
                     sortPriceDESC();
                     menuProduct();
                     break;
-                case 7:
+                case "7":
                     searchId(InputOption.SEARCH);
                     menuProduct();
                     break;
-                case 8:
+                case "8":
                     MainLauncher mainLauncher = new MainLauncher();
                     mainLauncher.mainMenu();
                     break;
-                case 0:
+                case "0":
                     AppUtils.exit();
                     break;
                 default:
                     System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");
             }
-        } while (number != 0);
+        } while (choice != "0");
 
     }
-
 //    public static void main(String[] args) {
 //        ProductView pd = new ProductView();
 //        pd.menuProduct();

@@ -74,7 +74,6 @@ public class OrderView {
     public void addOrder() {
         ArrayList<OrderItem> orderItemArrays = new ArrayList<>();
         ProductView productView = new ProductView();
-//        productView.showProductsSub();
         try {
             orderService.findAll();
             long orderId = System.currentTimeMillis() / 1000;
@@ -122,7 +121,6 @@ public class OrderView {
                 String choice = sc.nextLine();
                 switch (choice) {
                     case "1":
-//                        addOrderItems(System.currentTimeMillis() / 1000);
                         addOrderMore(orderId, name, phone, address, orderItemArrays);
                         break;
                     case "2":
