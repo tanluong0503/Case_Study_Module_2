@@ -15,7 +15,6 @@ public class MainLauncher {
 
     public void setMainLauncher() {
         adminView.menuLogin();
-        mainLauncher.mainMenu();
     }
 
     public void mainMenu() {

@@ -159,7 +159,7 @@ public class ProductView {
                     title = inputTitle(InputOption.UPDATE);
                     product.setTitle(title);
                     productService.update(product);
-                    System.out.println("THAY ĐỔI  THÀNH CÔNG");
+                    System.out.println("THAY ĐỔI THÀNH CÔNG");
                     break;
                 case 2:
                     quantity = inputQuantity(InputOption.UPDATE);
@@ -229,10 +229,10 @@ public class ProductView {
 
     public void showProductsSort(InputOption option, List<Product> products) {
         System.out.println("-------------------------------------------------------------------------------------------");
-        System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s ", "--          『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
+        System.out.printf("%30s %-30s %-30s %-30s %-30s %-30s ", "--『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
         System.out.println();
         for (Product product : products) {
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s\n",
+            System.out.printf("%30s %-30s %-30s %-30s %-30s %-30s\n",
                     "--\t\t【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
@@ -396,8 +396,8 @@ public class ProductView {
 
     }
 
-    public static void main(String[] args) {
-        ProductView pd = new ProductView();
-        pd.menuProduct();
-    }
+//    public static void main(String[] args) {
+//        ProductView pd = new ProductView();
+//        pd.menuProduct();
+//    }
 }

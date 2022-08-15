@@ -7,6 +7,8 @@ import severies.*;
 import utils.AppUtils;
 import utils.ValidateUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -70,16 +72,17 @@ public class OrderView {
     }
 
     public void addOrder() {
+        ArrayList<OrderItem> orderItemArrays = new ArrayList<>();
         ProductView productView = new ProductView();
-        productView.showProductsSub();
+//        productView.showProductsSub();
         try {
             orderService.findAll();
             long orderId = System.currentTimeMillis() / 1000;
-            System.out.print("NHẬP TÊN : ");
+            System.out.print("NHẬP TÊN KHÁCH HÀNG: ");
             String name = sc.nextLine();
             while (!ValidateUtils.isNameValid(name)) {
                 System.out.println("TÊN PHẢI VIẾT CHỮ CÁI HOA ĐẦU TIÊN VÀ VIẾT KHÔNG DẤU");
-                System.out.print("NHẬP TÊN : ");
+                System.out.print("NHẬP TÊN KHÁCH HÀNG: ");
                 name = sc.nextLine();
             }
             System.out.print("NHẬP SỐ ĐIỆN THOẠI : ");
@@ -89,9 +92,8 @@ public class OrderView {
                 System.out.print("NHẬP SỐ ĐIỆN THOẠI : ");
                 phone = sc.nextLine();
             }
-            String address;
             System.out.print("NHẬP ĐỊA CHỈ : ");
-            address = sc.nextLine();
+            String address = sc.nextLine();
             do {
                 if (address.trim().isEmpty()) {
                     System.out.println("ĐỊA CHỈ KHÔNG ĐƯỢC BỎ TRỐNG, XIN NHẬP NGHIÊM TÚC");
@@ -103,6 +105,7 @@ public class OrderView {
             Order order = new Order(orderId, name, phone, address);
             oderItemService.add(orderItem);
             orderService.add(order);
+            orderItemArrays.add(orderItem);
             System.out.println("TẠO ĐƠN HÀNG THÀNH CÔNG");
             do {
                 System.out.println("\t----------------------------------------------------------");
@@ -119,11 +122,57 @@ public class OrderView {
                 String choice = sc.nextLine();
                 switch (choice) {
                     case "1":
-                        addOrderItems(System.currentTimeMillis() / 1000);
-                        addOrder();
+//                        addOrderItems(System.currentTimeMillis() / 1000);
+                        addOrderMore(orderId, name, phone, address, orderItemArrays);
                         break;
                     case "2":
-                        showPaymentInfo(orderItem, order);
+                        showPaymentInfo(orderItemArrays, order);
+                        break;
+                    case "3":
+                        orderMenu();
+                        break;
+                    case "4":
+                        AppUtils.exit();
+                        break;
+                    default:
+                        System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");
+                }
+            } while (true);
+        } catch (Exception e) {
+            System.out.println("NHẬP SAI, XIN NHẬP LẠI");
+        }
+    }
+
+    public void addOrderMore(long orderId, String name, String phone, String address, ArrayList<OrderItem> orderItemArrayList) {
+        ProductView productView = new ProductView();
+        productView.showProductsSub();
+        try {
+            OrderItem orderItem = addOrderItems(orderId);
+            Order order = new Order(orderId, name, phone, address);
+            oderItemService.add(orderItem);
+            orderService.add(order);
+            orderItemArrayList.add(orderItem);
+            System.out.println("TẠO ĐƠN HÀNG THÀNH CÔNG");
+            do {
+                System.out.println("\t----------------------------------------------------------");
+                System.out.println("\t--░░░░░░░░░░░░░░░░░░░░[QUẢN LÍ HÓA ĐƠN]░░░░░░░░░░░░░░░░░--");
+                System.out.println("\t----------------------------------------------------------");
+                System.out.println("\t--                                                      --");
+                System.out.println("\t--               【1】. TẠO ĐƠN HÀNG TIẾP                --");
+                System.out.println("\t--               【2】. IN HÓA ĐƠN                       --");
+                System.out.println("\t--               【3】. QUAY LẠI                         --");
+                System.out.println("\t--               【4】. THOÁT                            --");
+                System.out.println("\t--                                                      --");
+                System.out.println("\t----------------------------------------------------------");
+                System.out.print("CHỌN SỐ : ");
+                String choice = sc.nextLine();
+                switch (choice) {
+                    case "1":
+//                        addOrderItems(System.currentTimeMillis() / 1000);
+                        addOrderMore(orderId, name, phone, address, orderItemArrayList);
+                        break;
+                    case "2":
+                        showPaymentInfo(orderItemArrayList, order);
                         break;
                     case "3":
                         orderMenu();
@@ -152,30 +201,35 @@ public class OrderView {
         System.out.println("\t--               【0】. THOÁT                            --");
         System.out.println("\t--                                                      --");
         System.out.println("\t----------------------------------------------------------");
-        System.out.print("CHỌN SỐ : ");
 
-        int number = Integer.parseInt(sc.nextLine());
-        switch (number) {
-            case 1:
-                addOrder();
-                break;
-            case 2:
-                showAllOrder();
-                break;
-            case 3:
-                ProductView productView = new ProductView();
-                productView.showProducts(InputOption.SHOW);
-                orderMenu();
-                break;
-            case 4:
-                MainLauncher mainLauncher = new MainLauncher();
-                mainLauncher.mainMenu();
-                break;
-            case 0:
-                AppUtils.exit();
-            default:
-                System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");
-        }
+        String choice;
+        do {
+            System.out.print("CHỌN CHỨC NĂNG : ");
+            choice = sc.nextLine();
+            switch (choice) {
+                case "1":
+                    addOrder();
+                    break;
+                case "2":
+                    showAllOrder();
+                    break;
+                case "3":
+                    ProductView productView = new ProductView();
+                    productView.showProducts(InputOption.SHOW);
+                    orderMenu();
+                    break;
+                case "4":
+                    MainLauncher mainLauncher = new MainLauncher();
+                    mainLauncher.mainMenu();
+                    break;
+                case "0":
+                    AppUtils.exit();
+                    break;
+                default:
+                    System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");
+                    break;
+            }
+        } while (true);
     }
 
     public void showAllOrder() {
@@ -214,9 +268,10 @@ public class OrderView {
                 );
                 AppUtils.doubleToVND(a += newOrderItem.getTotal());
             }
+            System.out.println("-- ══════════════════════════════════════════");
             System.out.println("-- TỔNG TIỀN :  " + AppUtils.doubleToVND(a));
-
-            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("-- ══════════════════════════════════════════");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             boolean is = true;
             do {
                 System.out.println("NHẤN 1 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");
@@ -239,7 +294,8 @@ public class OrderView {
         }
     }
 
-    public void showPaymentInfo(OrderItem orderItem, Order order) {
+    public void showPaymentInfo(ArrayList<OrderItem> orderItems, Order order) {
+        double total = 0;
         double a = 0;
         try {
 
@@ -254,17 +310,21 @@ public class OrderView {
                     "『 GIÁ 』",
                     "『 THÀNH TIỀN 』"
             );
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--\t\t【" + order.getId() + "】",
-                    order.getFullName(),
-                    order.getMobile(),
-                    order.getAddress(),
-                    orderItem.getProductName(),
-                    orderItem.getQuantity(),
-                    AppUtils.doubleToVND(orderItem.getPrice()),
-                    AppUtils.doubleToVND(orderItem.getTotal())
-            );
-            System.out.println("---------------------------------------------------------------------------------------");
+            for (OrderItem orderItem : orderItems) {
+                System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
+                        "--\t\t【" + order.getId() + "】",
+                        order.getFullName(),
+                        order.getMobile(),
+                        order.getAddress(),
+                        orderItem.getProductName(),
+                        orderItem.getQuantity(),
+                        AppUtils.doubleToVND(orderItem.getPrice()),
+                        AppUtils.doubleToVND(orderItem.getTotal())
+                );
+                total += orderItem.getTotal();
+                System.out.println("\t\t\t\t TỔNG TIỀN CỦA HÓA ĐƠN: " + AppUtils.doubleToVND(total));
+                System.out.println("---------------------------------------------------------------------------------------");
+            }
             boolean is = true;
             do {
                 System.out.println("NHẤN 1 ĐÊ TIẾP TỤC \t|\t NHẤN 2 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");

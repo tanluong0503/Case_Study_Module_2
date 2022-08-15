@@ -22,12 +22,14 @@ public class AdminView {
             String userName = AppUtils.retryString("TÊN ĐĂNG NHẬP");
             System.out.print("NHẬP MẬT KHẨU : ");
             String password = AppUtils.retryString("MẬT KHẨU");
-            if (userService.adminLogin(userName, password) == null) {
+            if (userService.adminLogin(userName, password) != null) {
+                System.out.println("ĐĂNG NHẬP THÀNH CÔNG !!! ");
+                MainLauncher mainLauncher = new MainLauncher();
+                mainLauncher.mainMenu();
+                isRetry = true;
+            } else {
                 System.out.println("TÀI KHOẢN KHÔNG HỢP LỆ");
                 isRetry = isRetry();
-            } else {
-                System.out.println("ĐĂNG NHẬP THÀNH CÔNG !!! ");
-                isRetry = false;
             }
         } while (isRetry);
     }
@@ -63,13 +65,13 @@ public class AdminView {
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
                 System.out.print("░░░ CHỌN SỐ : ");
-                int choice = Integer.parseInt(sc.nextLine());
+                String choice = sc.nextLine();
                 switch (choice) {
-                    case 1:
+                    case "1":
                         return true;
-                    case 2:
+                    case "2":
                         menuLogin();
-                    case 0:
+                    case "0":
                         AppUtils.exit();
                         break;
                     default:
@@ -93,18 +95,17 @@ public class AdminView {
                 System.out.println("\t--                                                      --");
                 System.out.println("\t----------------------------------------------------------");
                 System.out.print("░░░ CHỌN SỐ : ");
-                int choice = Integer.parseInt(sc.nextLine());
+                String choice = sc.nextLine();
                 switch (choice) {
-                    case 1:
+                    case "1":
                         adminLogin();
-                        mainLauncher.mainMenu();
                         break;
-                    case 2:
+                    case "2":
                         userLogin();
                         UserSubMenu userSubMenu = new UserSubMenu();
                         userSubMenu.userSubMenu();
                         break;
-                    case 0:
+                    case "0":
                         AppUtils.exit();
                     default:
                         System.out.println("CHỌN SAI SỐ, MỜI CHỌN LẠI : ");

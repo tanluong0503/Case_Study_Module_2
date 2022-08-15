@@ -19,17 +19,17 @@ public class UserSubMenu {
         System.out.println("\t----------------------------------------------------------");
         System.out.print("CHỌN SỐ : ");
 
-        int number = Integer.parseInt(sc.nextLine());
+        String number = sc.nextLine();
         switch (number) {
-            case 1:
+            case "1":
                 orderView.addOrder();
                 break;
-            case 2:
+            case "2":
                 ProductView productView = new ProductView();
                 productView.showProductsSub();
                 userSubMenu();
                 break;
-            case 0:
+            case "0":
                 AppUtils.exit();
             default:
                 System.out.println("NHẬP KHÔNG ĐÚNG, XIN NHẬP LẠI");

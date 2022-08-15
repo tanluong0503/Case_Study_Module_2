@@ -186,13 +186,13 @@ public class UserView {
         System.out.println("\t--                                                      --");
         System.out.println("\t----------------------------------------------------------");
         System.out.print("░░░░░░░░░░░░░░░░░░░░░░░░░░  CHỌN SỐ : ");
-        int option = sc.nextInt();
+        String option = sc.nextLine();
         sc.nextLine();
         switch (option) {
-            case 1:
+            case "1":
                 user.setRole(Role.USER);
                 break;
-            case 2:
+            case "2":
                 user.setRole(Role.ADMIN);
                 break;
             default:

@@ -19,7 +19,7 @@ public class Order {
     public Order(long id, String fullName, String mobile, String address) {
         this.id = id;
         this.fullName = fullName;
-        this.phone = phone;
+        this.phone = mobile;
         this.address = address;
     }
 
