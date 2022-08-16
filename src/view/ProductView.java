@@ -228,11 +228,17 @@ public class ProductView {
     }
 
     public void showProductsSort(InputOption option, List<Product> products) {
-        System.out.println("-------------------------------------------------------------------------------------------");
-        System.out.printf("%30s %-30s %-30s %-30s %-30s %-30s ", "--『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                " ID",
+                "TÊN SẢN PHẨM",
+                "SỐ LƯỢNG",
+                "GIÁ",
+                "THỜI GIAN TẠO",
+                "THỜI GIAN CẬP NHẬT");
         System.out.println();
         for (Product product : products) {
-            System.out.printf("%30s %-30s %-30s %-30s %-30s %-30s\n",
+            System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
                     "--\t\t【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
@@ -240,7 +246,7 @@ public class ProductView {
                     product.getTimeNow(),
                     product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
         }
-        System.out.println("-------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
         if (option == InputOption.SHOW) {
             AppUtils.isRetry(InputOption.SHOW);
         }
@@ -268,23 +274,23 @@ public class ProductView {
         }
 
         for (Product product : productService.findAll()) {
-            System.out.println("---------------------------------------------------------------------------------------");
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--          『 ID 』",
-                    "『 TÊN SẢN PHẨM 』 ",
-                    "『 SỐ LƯỢNG 』",
-                    "『 GIÁ 』",
-                    "『 THỜI GIAN TẠO 』",
-                    "『 THỜI GIAN CẬP NHẬT 』");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                    " ID",
+                    "TÊN SẢN PHẨM",
+                    "SỐ LƯỢNG",
+                    "GIÁ",
+                    "THỜI GIAN TẠO",
+                    "THỜI GIAN CẬP NHẬT");
             if (product.getId() == id) {
-                System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s\n",
-                        "--\t\t【" + product.getId() + "】",
+                System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                        "--【" + product.getId() + "】",
                         product.getTitle(),
                         product.getQuantity(),
                         AppUtils.doubleToVND(product.getPrice()),
                         product.getTimeNow(),
                         product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
-                System.out.println("-----------------------------------------------------------------------------------");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
                 break;
             }
         }
@@ -300,38 +306,50 @@ public class ProductView {
     }
 
     public void showProducts(InputOption option) {
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s ", "--          『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                " 『 ID 』",
+                "TÊN SẢN PHẨM",
+                "SỐ LƯỢNG",
+                "GIÁ",
+                "THỜI GIAN TẠO",
+                "THỜI GIAN CẬP NHẬT");
         System.out.println();
         for (Product product : productService.findAll()) {
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--\t\t【" + product.getId() + "】",
+            System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                    "【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
                     AppUtils.doubleToVND(product.getPrice()),
                     InstantUtils.instantToString(product.getTimeNow()),
                     product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
         }
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
         if (option == InputOption.SHOW) {
             AppUtils.isRetry(InputOption.SHOW);
         }
     }
 
     public void showProductsSub() {
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s ", "--          『 ID 』", "『 TÊN SẢN PHẨM 』 ", "『 SỐ LƯỢNG 』", "『 GIÁ 』", "『 THỜI GIAN TẠO 』", "『 THỜI GIAN CẬP NHẬT 』");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                " ID",
+                "TÊN SẢN PHẨM",
+                "SỐ LƯỢNG",
+                "GIÁ",
+                "THỜI GIAN TẠO",
+                "THỜI GIAN CẬP NHẬT");
         System.out.println();
         for (Product product : productService.findAll()) {
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--\t\t【" + product.getId() + "】",
+            System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                    "--【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
                     product.getPrice(),
                     product.getTimeNow(),
                     product.getTimeUpdate() == null ? "" : InstantUtils.instantToString(product.getTimeUpdate()));
         }
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     public void menuProduct() {
@@ -396,8 +414,8 @@ public class ProductView {
         } while (choice != "0");
 
     }
-//    public static void main(String[] args) {
-//        ProductView pd = new ProductView();
-//        pd.menuProduct();
-//    }
+    public static void main(String[] args) {
+        ProductView pd = new ProductView();
+        pd.menuProduct();
+    }
 }

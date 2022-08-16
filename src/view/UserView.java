@@ -284,31 +284,27 @@ public class UserView {
     }
 
     public void showUsers(InputOption option) {
-        System.out.println("-------------------------------------------------------------------------------------------");
-        System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s ",
-                "--     『 ID 』",
-                "  『 TÊN 』 ",
-                "『 SỐ ĐIỆN THOẠI 』",
-                "『 EMAIL 』",
-                "『 ĐỊA CHỈ 』",
-                "『 NGƯỜI DÙNG 』",
-                "『 NGÀY TẠO 』",
-                "『 NGÀY CẬP NHẬT 』"
-        );
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-18s %-20s %-20s %-30s %-15s %-17s %-20s",
+                " ID",
+                "TÊN",
+                "SỐ ĐIỆN THOẠI",
+                "EMAIL",
+                "ĐỊA CHỈ",
+                "NGƯỜI DÙNG",
+                "NGÀY TẠO");
         System.out.println();
         for (User user : userService.findAll()) {
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--\t\t【" + user.getId() + "】",
+            System.out.printf("%-17s %-20s %-20s %-30s %-15s %-17s %-20s\n",
+                    "【" + user.getId() + "】",
                     user.getFullName(),
                     user.getMobile(),
                     user.getEmail(),
                     user.getAddress(),
                     user.getRole(),
-                    InstantUtils.instantToString(user.getCreatedAt()),
-                    user.getUpdatedAt() == null ? "" : InstantUtils.instantToString(user.getUpdatedAt()));
-
+                    InstantUtils.instantToString(user.getCreatedAt()));
         }
-        System.out.println("-------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
         if (option == InputOption.SHOW) {
             AppUtils.isRetry(InputOption.SHOW);
         }
@@ -316,7 +312,7 @@ public class UserView {
 
     public void menuUser() {
         int number;
-        System.out.println("\t-------------------------------------------------------------------------------------");
+        System.out.println("\t------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("\t--░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[DANH SÁCH NGƯỜI DÙNG]░░░░░░░░░░░░░░░░░░░░░░░░░░░░░--");
         System.out.println("\t-------------------------------------------------------------------------------------");
         System.out.println("\t--                                                                                 --");

@@ -236,16 +236,16 @@ public class OrderView {
         OrderItem newOrderItem = new OrderItem();
         double a = 0;
         try {
-            System.out.println("----------------------------------------------------------------------------------------");
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--        『 ID 』",
-                    "『 TÊN KHÁCH HÀNG 』 ",
-                    "『 SỐ ĐIỆN THOẠI 』",
-                    "『 ĐỊA CHỈ 』",
-                    "『 TÊN SẢN PHẨM 』",
-                    "『 SỐ LƯỢNG 』",
-                    "『 GIÁ 』",
-                    "『 THÀNH TIỀN 』"
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%-17s %-20s %-20s %-15s %-25s %-17s %-20s\n",
+                    " ID",
+                    "TÊN KHÁCH HÀNG",
+                    "SỐ ĐIỆN THOẠI",
+                    "ĐỊA CHỈ",
+                    "TÊN SẢN PHẨM",
+                    "SỐ LƯỢNG",
+                    "GIÁ",
+                    "THÀNH TIỀN"
             );
             for (Order order : orders) {
                 for (OrderItem orderItem : orderItems) {
@@ -254,8 +254,8 @@ public class OrderView {
                         break;
                     }
                 }
-                System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                        "--\t\t【" + order.getId() + "】",
+                System.out.printf("%-17s %-20s %-20s %-15s %-25s %-17s %-20s\n",
+                        "--【" + order.getId() + "】",
                         order.getFullName(),
                         order.getMobile(),
                         order.getAddress(),
@@ -269,7 +269,7 @@ public class OrderView {
             System.out.println("-- ══════════════════════════════════════════");
             System.out.println("-- TỔNG TIỀN :  " + AppUtils.doubleToVND(a));
             System.out.println("-- ══════════════════════════════════════════");
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
             boolean is = true;
             do {
                 System.out.println("NHẤN 1 ĐỂ QUAY LẠI \t|\t NHẤN 0 ĐỂ THOÁT CHƯƠNG TRÌNH");
@@ -297,20 +297,20 @@ public class OrderView {
         double a = 0;
         try {
 
-            System.out.println("---------------------------------------------------------------------------------------");
-            System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                    "--        『 ID 』",
-                    "『 TÊN KHÁCH HÀNG 』 ",
-                    "『 SỐ ĐIỆN THOẠI 』",
-                    "『 ĐỊA CHỈ 』",
-                    "『 TÊN SẢN PHẨM 』",
-                    "『 SỐ LƯỢNG 』",
-                    "『 GIÁ 』",
-                    "『 THÀNH TIỀN 』"
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%-17s %-20s %-20s %-30s %-15s %-17s %-15s %-15s\n",
+                    " ID",
+                    "TÊN KHÁCH HÀNG",
+                    "SỐ ĐIỆN THOẠI",
+                    "ĐỊA CHỈ",
+                    "TÊN SẢN PHẨM",
+                    "SỐ LƯỢNG",
+                    "GIÁ",
+                    "THÀNH TIỀN"
             );
             for (OrderItem orderItem : orderItems) {
-                System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                        "--\t\t【" + order.getId() + "】",
+                System.out.printf("%-17s %-20s %-20s %-30s %-15s %-17s %-15s %-15s\n",
+                        "--【" + order.getId() + "】",
                         order.getFullName(),
                         order.getMobile(),
                         order.getAddress(),
@@ -321,7 +321,7 @@ public class OrderView {
                 );
                 total += orderItem.getTotal();
                 System.out.println("\t\t\t\t TỔNG TIỀN CỦA HÓA ĐƠN: " + AppUtils.doubleToVND(total));
-                System.out.println("---------------------------------------------------------------------------------------");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
             boolean is = true;
             do {
