@@ -239,7 +239,7 @@ public class ProductView {
         System.out.println();
         for (Product product : products) {
             System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
-                    "--\t\t【" + product.getId() + "】",
+                    "【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
                     product.getPrice(),
@@ -272,19 +272,18 @@ public class ProductView {
                     break;
             }
         }
-
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
+                " ID",
+                "TÊN SẢN PHẨM",
+                "SỐ LƯỢNG",
+                "GIÁ",
+                "THỜI GIAN TẠO",
+                "THỜI GIAN CẬP NHẬT");
         for (Product product : productService.findAll()) {
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
-                    " ID",
-                    "TÊN SẢN PHẨM",
-                    "SỐ LƯỢNG",
-                    "GIÁ",
-                    "THỜI GIAN TẠO",
-                    "THỜI GIAN CẬP NHẬT");
             if (product.getId() == id) {
                 System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
-                        "--【" + product.getId() + "】",
+                        "【" + product.getId() + "】",
                         product.getTitle(),
                         product.getQuantity(),
                         AppUtils.doubleToVND(product.getPrice()),
@@ -308,7 +307,7 @@ public class ProductView {
     public void showProducts(InputOption option) {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
-                " 『 ID 』",
+                " ID",
                 "TÊN SẢN PHẨM",
                 "SỐ LƯỢNG",
                 "GIÁ",
@@ -342,7 +341,7 @@ public class ProductView {
         System.out.println();
         for (Product product : productService.findAll()) {
             System.out.printf("%-17s %-20s %-15s %-20s %-25s %-25s\n",
-                    "--【" + product.getId() + "】",
+                    "【" + product.getId() + "】",
                     product.getTitle(),
                     product.getQuantity(),
                     product.getPrice(),
@@ -414,8 +413,8 @@ public class ProductView {
         } while (choice != "0");
 
     }
-    public static void main(String[] args) {
-        ProductView pd = new ProductView();
-        pd.menuProduct();
-    }
+//    public static void main(String[] args) {
+//        ProductView pd = new ProductView();
+//        pd.menuProduct();
+//    }
 }
